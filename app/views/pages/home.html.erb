@@ -1,2 +1,26 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path('garden.jpg') %>);">
+  <div class="container">
+    <h1>Also dreaming of your own garden?</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+    <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+      <div class="search-form-control form-group">
+        <div class="form-control">
+          <input type="text" name="search[query]" id="search_query" placeholder="Where should your garden be?" />
+          <button name="button" type="submit" class="btn btn-custom">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+
+
+      </div>
+     <!--  <%= image_tag "logo-gardenBnB-cream.png" %> -->
+    <% end %>
+  </div>
+</div>
+<!-- # <%= image_tag "logo-gardenBnB.png" %> -->
+
+
+<!-- https://images.unsplash.com/photo-1596481768453-8befafc2d7ae?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z2FyZGVuJTIwaG9tZXxlbnwwfDB8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60
+ -->
