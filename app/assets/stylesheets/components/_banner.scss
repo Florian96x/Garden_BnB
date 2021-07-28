@@ -1,7 +1,6 @@
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
 }
 
 .banner h1 {
@@ -16,8 +15,16 @@
 
 .banner p {
   font-size: 20px;
+  font-weight: lighter;
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   text-align: center;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.container {
+  padding-top: 40px;
+  padding-bottom: 150px;
 }
