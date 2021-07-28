@@ -1,5 +1,5 @@
 
-# cleaning DB from all User instances (and related instances)
+# cleaning DB from all User instances and related Garden instances
 puts "cleaning up database"
 User.destroy_all
 
@@ -15,9 +15,6 @@ puts "created User #{User.last.name} with id #{User.last.id}"
 
 puts "Finished creating #{User.count} new Users"
 puts ""
-
-# only necessary as long as Gardens don't get destroyed together with Users
-Garden.destroy_all
 
 # making new Garden instances
 
