@@ -5,6 +5,10 @@ class GardensController < ApplicationController
     @gardens = Garden.all
   end
 
+  def show
+    @garden = Garden.find(params[:id])
+  end
+
   def new
     @garden = Garden.new
   end
