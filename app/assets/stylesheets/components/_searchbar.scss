@@ -1,0 +1,39 @@
+.search-form-control {
+  position: relative;
+}
+
+.search-form-control .form-control {
+  position: absolute;
+  left: 35%;
+  height: 3.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  background-color:white;
+  border: none;
+  border-radius: 32px;
+  width: 35%;
+  display: flex;
+  justify-content: space-between;
+
+  input {
+    padding-left: 8px;
+    width: 100%;
+    opacity: 0.7;
+    border: none;
+    background-color: transparent;
+    outline: none;
+
+  }
+
+  .btn-custom {
+    color: white;
+    background-color: #FC7A1E;
+    border-radius: 50%;
+  }
+  .btn-custom:hover {
+    background-color: #df5e02;
+  }
+}
+
+// ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+//   color: #A9A9A9;
+// }
