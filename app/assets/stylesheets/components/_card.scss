@@ -1,0 +1,54 @@
+
+.card-city {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  color: rgb(34,34,34);
+  width: 18rem;
+  height: 50%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  margin: auto;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.card-city img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-city h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: auto;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.card-city p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-city .card-city-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.card-discover {
+  margin-left: 24px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.card-discover h2 {
+  font-weight:700;
+  font-family: 'Open Sans', sans-serif;
+}
+
