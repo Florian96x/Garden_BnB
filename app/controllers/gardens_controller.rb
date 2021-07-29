@@ -1,5 +1,5 @@
 class GardensController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index] # add show to it
+  skip_before_action :authenticate_user!, only: [:index, :show] # add show to it
 
   def index
     @gardens = Garden.all
