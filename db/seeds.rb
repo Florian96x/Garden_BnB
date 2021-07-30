@@ -5,7 +5,6 @@ Garden.destroy_all
 User.destroy_all
 
 # making new User instances
-
 User.create!(name: "Nahuel", email: "nahuel@fake.com", password:"nahuel@fake.com")
 puts "created User #{User.last.name} with id #{User.last.id}"
 User.create!(name: "Chloe", email: "chloe@fake.com", password:"chloe@fake.com")
@@ -104,7 +103,4 @@ Booking.create!(
     garden: Garden.find_by(name: "Homecoming"),
 )
 puts ""
-puts "All done! Finished creating #{Booking.count} new gardens"
-
-
-
+puts "All done! Finished creating #{Booking.count} new bookings"
