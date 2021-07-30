@@ -1,0 +1,28 @@
+<div class="navbar navbar-expand-sm  navbar-fixed-top navbar-lewagon bg-success">
+    <a class="navbar-brand" href="#">
+      <%= image_tag('logo-gardenBnB-normal.png') %>
+    </a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <%= link_to "Sign up", new_user_session_path, class: "nav-link btn btn-primary mr-4 bg-success"%>
+            </li>
+            <li class="nav-item dropdown">
+                <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Sign in</a>
+                    <a class="dropdown-item" href="#">Sign up</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="container_gardens">
+<h2><%= @garden.name %></h2>
+<img src="https://source.unsplash.com/random/1180×240/?garden" />
+<p><%= @garden.address %></p>
+<p><%= @garden.price_per_day %></p>
+<p><%= @garden.description%></p>
+</div>
