@@ -1,5 +1,6 @@
 class Garden < ApplicationRecord
-  belongs_to :user
+  belongs_to :user 
+  has_many :bookings, dependent: :destroy
 
   validates :name, presence: true
   validates :description, presence: true, length: { minimum: 50 }
