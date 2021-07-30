@@ -1,6 +1,7 @@
-
 # cleaning DB from all User instances and related Garden instances
 puts "cleaning up database"
+Booking.destroy_all
+Garden.destroy_all
 User.destroy_all
 
 # making new User instances
@@ -64,3 +65,42 @@ Garden.create!(
 puts "created #{Garden.last.user.name}'s Garden #{Garden.last.name}"
 puts ""
 puts "All done! Finished creating #{Garden.count} new gardens"
+
+# creating new instances, bookings
+Booking.create!(
+    start_date: Date.today,
+    end_date: Faker::Date.forward(days: 14),
+    user_introduction: 'Hello, I would love to book your beautiful garden',
+    total_price: 100,
+    user: User.find_by(name: "Chloe"),
+    garden: Garden.find_by(name: "Every dogs dream! Grandpa's backyard turned into a playground"),
+)
+
+Booking.create!(
+    start_date: Date.today,
+    end_date: Faker::Date.forward(days: 14),
+    user_introduction: 'Hello, I would love to book your beautiful garden',
+    total_price: 100,
+    user: User.find_by(name: "Nahuel"),
+    garden: Garden.find_by(name: "A cool, quite corner of the world"),
+)
+
+Booking.create!(
+    start_date: Date.today,
+    end_date: Faker::Date.forward(days: 14),
+    user_introduction: 'Hello, I would love to book your beautiful garden',
+    total_price: 100,
+    user: User.find_by(name: "Kim"),
+    garden: Garden.find_by(name: "Exotic garden for misfit plants"),
+)
+
+Booking.create!(
+    start_date: Date.today,
+    end_date: Faker::Date.forward(days: 14),
+    user_introduction: 'Hello, I would love to book your beautiful garden',
+    total_price: 100,
+    user: User.find_by(name: "Andrea"),
+    garden: Garden.find_by(name: "Homecoming"),
+)
+puts ""
+puts "All done! Finished creating #{Booking.count} new bookings"

@@ -23,7 +23,12 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 # Use devise gem for authentication
 gem 'devise'
+
+# Use faker to generate dates
+gem 'faker'
+
 gem 'pundit'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
