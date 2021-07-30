@@ -24,13 +24,14 @@
   font-size: 16px;
   font-weight: bold;
   margin: auto;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela', sans-serif;;
 }
 
 .card-city p {
   font-size: 12px;
   opacity: .7;
   margin: 0;
+  font-family: 'Varela', sans-serif;
 }
 
 
@@ -52,3 +53,31 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+.card-description {
+  margin: auto;
+  align-items: center;
+}
+.container-garden {
+  margin: 36px;
+}
+
+.container-garden img {
+  height: 300px;
+  width: 300px;
+}
+
+.container-garden h2, p {
+  font-family: 'Open Sans', sans-serif;
+  margin-left: 24px;
+
+}
+
+.garden-card  {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  color: rgb(34,34,34);
+  margin-left: 24px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  align-items: center;
+  justify-content: space-between;
+}
