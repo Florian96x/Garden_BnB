@@ -1,3 +1,4 @@
+// city cards on homepage
 
 .card-city {
   overflow: hidden;
@@ -24,7 +25,7 @@
   font-size: 16px;
   font-weight: bold;
   margin: auto;
-  font-family: 'Varela', sans-serif;;
+  font-family: 'Varela', sans-serif;
 }
 
 .card-city p {
@@ -48,9 +49,9 @@
   margin-bottom: 24px;
 }
 
-.card-discover h2 {
-  font-weight:700;
-  font-family: 'Open Sans', sans-serif;
+.card-discover h3 {
+  font-size: 24px;
+  font-weight: 600;
 }
 
 .card-description {
@@ -80,4 +81,48 @@
   margin-bottom: 24px;
   align-items: center;
   justify-content: space-between;
+}
+
+
+
+// garden cards on gardens (index) page
+
+.card-trip {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-trip > img {
+  height: 240px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-trip h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-trip p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-trip .card-trip-infos {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
 }

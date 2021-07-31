@@ -29,7 +29,7 @@ Garden.create!(
 puts "created #{Garden.last.user.name}'s Garden #{Garden.last.name}"
 
 Garden.create!(
-  name: "A cool, quite corner of the world",
+  name: "A cool, quiet corner of the world",
   description: "15 years ago we planted a woodland garden, complete with a “forest floor” and a canopy of trees that provide deep shades of green and dappled sunlight. It's long been our private oasis but now we'd like to share this beauty with other 'gardenloving' people. We expect everyone to treat our garden with love and respect so it keeps being the paradise it is. No pets allowed.",
   address: "Berlin Grunewald",
   price_per_day: 38,
