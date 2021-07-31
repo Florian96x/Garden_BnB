@@ -1,5 +1,5 @@
 class GardensController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show] # add show to it
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @gardens = Garden.all
@@ -15,6 +15,7 @@ class GardensController < ApplicationController
   
   def create
     @garden = Garden.new(garden_params)
+    @garden.user = current_user
     if @garden.save
       redirect_to garden_path(@gardens)
     else
