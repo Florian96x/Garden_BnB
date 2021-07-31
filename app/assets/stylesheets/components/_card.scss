@@ -25,12 +25,14 @@
   font-size: 16px;
   font-weight: bold;
   margin: auto;
+  font-family: 'Varela', sans-serif;
 }
 
 .card-city p {
   font-size: 12px;
   opacity: .7;
   margin: 0;
+  font-family: 'Varela', sans-serif;
 }
 
 
@@ -52,8 +54,42 @@
   font-weight: 600;
 }
 
+.card-description {
+  margin: auto;
+  align-items: center;
+}
+.container-garden {
+margin: 24px;
+}
 
+.garden-card img {
+  height: 300px;
+  width: 300px;
+  margin-right: 40px;
+}
 
+.container-garden p {
+  margin-left: 24px;
+
+}
+
+.card-location {
+  margin-left:auto;
+}
+
+.garden-card  {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  color: rgb(34,34,34);
+  margin-left: 24px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.garden-info-flex {
+  display: flex;
+}
 
 // garden cards on gardens (index) page
 
