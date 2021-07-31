@@ -82,7 +82,7 @@ Booking.create!(
     user_introduction: 'Hello, I would love to book your beautiful garden',
     total_price: 100,
     user: User.find_by(name: "Nahuel"),
-    garden: Garden.find_by(name: "A cool, quite corner of the world"),
+    garden: Garden.find_by(name: "A cool, quiet corner of the world"),
 )
 
 Booking.create!(
