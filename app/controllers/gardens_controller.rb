@@ -1,18 +1,14 @@
 class GardensController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show] # add show to it
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @gardens = Garden.all
-  end
-
-  def show
-    @garden = Garden.find(params[:id])
+    @gardens = policy_scope(Garden).order(created_at: :desc)
   end
 
   def new
     @garden = Garden.new
   end
-  
+
   def create
     @garden = Garden.new(garden_params)
     if @garden.save
@@ -24,6 +20,7 @@ class GardensController < ApplicationController
 
   def show
     @garden = Garden.find(params[:id])
+    authorize @garden
   end
 
   private

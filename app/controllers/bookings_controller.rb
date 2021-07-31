@@ -1,10 +1,13 @@
 class BookingsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show, :new, :create]
+
   def index
-    @bookings = Booking.all
+    @bookings = policy_scope(Booking).order(created_at: :desc)
   end
 
   def new
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
@@ -12,6 +15,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.garden = @garden
     @booking.user = current_user
+    authorize @booking
     
     if @booking.save
       redirect_to booking_path(@booking)
@@ -31,5 +35,4 @@ class BookingsController < ApplicationController
   end
 
   # TO DO, implement total_price logic
-
 end
