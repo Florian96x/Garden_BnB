@@ -1,20 +1,25 @@
 <%= render 'shared/navbar'%>
 
+
 <div class="container-garden">
  <h2><%= @garden.name %></h2>
   <div class="row">
-  <div class="garden-card">
+    <div class="garden-card">
     <img src="https://source.unsplash.com/random/1180×240/?garden">
     <img src="https://source.unsplash.com/random/1180×240/?garden">
     <img src="https://source.unsplash.com/random/1180×240/?garden">
     <img src="https://source.unsplash.com/random/1180×240/?garden">
+    </div>
   </div>
-  <div class="card-location-price">
-<p>Location: <%= @garden.address %></p>
-<p>Price Per Day: <%= @garden.price_per_day %></p>
-</div>
-<p>Garden Description
-  <br>
-  <%= @garden.description%></p>
+  <div class="garden-info-flex">
+    <div class="card-location">
+      <p><strong>Location:</strong> <%= @garden.address %></p>
+      <p><strong>Price Per Day:</strong> €<%= @garden.price_per_day %></p>
+    </div>
   </div>
+  <div class="garden-description">
+      <p><strong>Garden Description</strong>
+      <br>
+      <%= @garden.description%></p>
+    </div>
 </div>
