@@ -8,7 +8,11 @@ class BookingsController < ApplicationController
   end
 
   def create
+    @garden = Garden.find(params[:garden_id])
     @booking = Booking.new(booking_params)
+    @booking.garden = @garden
+    @booking.user = current_user
+    
     if @booking.save
       redirect_to booking_path(@booking)
     else
