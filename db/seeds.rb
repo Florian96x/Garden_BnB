@@ -13,6 +13,8 @@ User.create!(name: "Kim", email: "kim@fake.com", password:"kim@fake.com")
 puts "created User #{User.last.name} with id #{User.last.id}"
 User.create!(name: "Andrea", email: "andrea@fake.com", password:"andrea@fake.com")
 puts "created User #{User.last.name} with id #{User.last.id}"
+User.create!(name: "Noah", email: "noah@fake.com", password:"noah@fake.com")
+puts "created User #{User.last.name} with id #{User.last.id}"
 
 puts "Finished creating #{User.count} new Users"
 puts ""
