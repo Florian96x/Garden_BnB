@@ -13,6 +13,8 @@ User.create!(name: "Kim", email: "kim@fake.com", password:"kim@fake.com")
 puts "created User #{User.last.name} with id #{User.last.id}"
 User.create!(name: "Andrea", email: "andrea@fake.com", password:"andrea@fake.com")
 puts "created User #{User.last.name} with id #{User.last.id}"
+User.create!(name: "Noah", email: "noah@fake.com", password:"noah@fake.com")
+puts "created User #{User.last.name} with id #{User.last.id}"
 
 puts "Finished creating #{User.count} new Users"
 puts ""
@@ -82,7 +84,7 @@ Booking.create!(
     user_introduction: 'Hello, I would love to book your beautiful garden',
     total_price: 100,
     user: User.find_by(name: "Nahuel"),
-    garden: Garden.find_by(name: "A cool, quite corner of the world"),
+    garden: Garden.find_by(name: "A cool, quiet corner of the world"),
 )
 
 Booking.create!(
