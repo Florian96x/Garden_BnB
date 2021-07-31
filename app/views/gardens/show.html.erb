@@ -3,14 +3,21 @@
 
 <div class="container-garden">
  <h2><%= @garden.name %></h2>
-  <div class="row">
-    <div class="garden-card">
-    <img src="https://source.unsplash.com/random/1180×240/?garden">
-    <img src="https://source.unsplash.com/random/1180×240/?garden">
-    <img src="https://source.unsplash.com/random/1180×240/?garden">
-    <img src="https://source.unsplash.com/random/1180×240/?garden">
+  <div class="row justify-content-around">
+    <div class="col-2">
+      <img src="https://source.unsplash.com/random/220x220/?garden">
+    </div>
+    <div class="col-2">
+      <img src="https://source.unsplash.com/random/220x220/?garden">
+    </div>
+    <div class="col-2">
+      <img src="https://source.unsplash.com/random/220x220/?garden">
+    </div>
+    <div class="col-2">
+      <img src="https://source.unsplash.com/random/220x220/?garden">
     </div>
   </div>
+
   <div class="garden-info-flex">
     <div class="card-location">
       <p><strong>Location:</strong> <%= @garden.address %></p>
@@ -21,5 +28,5 @@
       <p><strong>Garden Description</strong>
       <br>
       <%= @garden.description%></p>
-    </div>
+  </div>
 </div>
