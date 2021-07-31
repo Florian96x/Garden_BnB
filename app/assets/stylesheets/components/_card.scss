@@ -58,37 +58,42 @@
   margin: auto;
   align-items: center;
 }
-.container-garden {
-margin: 24px;
+
+// garden cards on show page
+
+.container-garden h2 {
+  margin-left: 56px;
+  margin-top: 24px;
 }
 
-.garden-card img {
-  height: 300px;
-  width: 300px;
-  margin-right: 40px;
-}
-
-.container-garden p {
-  margin-left: 24px;
-
+.container-garden img {
+  margin-top: 24px;
+  margin-bottom: 24px;
 }
 
 .card-location {
-  margin-left:auto;
+  margin-left: auto;
+  margin-right: 56px;
 }
 
-.garden-card  {
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  color: rgb(34,34,34);
-  margin-left: 24px;
-  margin-top: 24px;
-  margin-bottom: 24px;
-  align-items: center;
-  justify-content: space-between;
-}
 
 .garden-info-flex {
   display: flex;
+  text-align: center;
+  width: 250px;
+  padding-top: 20px;
+}
+
+.garden-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 80px;
+  height: 250px;
+}
+
+.garden-description {
+  width: 750px;
+  padding-top: 20px;
 }
 
 // garden cards on gardens (index) page
