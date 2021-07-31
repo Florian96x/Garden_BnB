@@ -26,6 +26,8 @@ gem 'devise'
 
 # Use faker to generate dates
 gem 'faker'
+#Adding datepicker
+gem 'bootstrap-datepicker-rails'
 
 gem 'pundit'
 
