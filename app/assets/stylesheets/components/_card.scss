@@ -66,11 +66,6 @@
   margin-top: 24px;
 }
 
-.container-garden p {
-  margin-left: 56px;
-  margin-right: 24px;
-}
-
 .container-garden img {
   margin-top: 24px;
   margin-bottom: 24px;
@@ -78,12 +73,27 @@
 
 .card-location {
   margin-left: auto;
-  margin-right: 32px;
+  margin-right: 56px;
 }
 
 
 .garden-info-flex {
   display: flex;
+  text-align: center;
+  width: 250px;
+  padding-top: 20px;
+}
+
+.garden-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 80px;
+  height: 250px;
+}
+
+.garden-description {
+  width: 750px;
+  padding-top: 20px;
 }
 
 // garden cards on gardens (index) page

@@ -1,6 +1,6 @@
 <%= render 'shared/navbar'%>
 
-
+<!-- Garden Images-->
 <div class="container-garden">
  <h2><%= @garden.name %></h2>
   <div class="row justify-content-around">
@@ -18,41 +18,43 @@
     </div>
   </div>
 
+ <!-- Garden Location and Price -->
+ <div class="garden-content">
+  <div class="garden-description">
+    <p><%= @garden.description%></p>
+  </div>
+
   <div class="garden-info-flex">
     <div class="card-location">
-      <p><strong>Location:</strong> <%= @garden.address %></p>
+      <p><%= @garden.address %></p>
       <p><strong>Price Per Day:</strong> €<%= @garden.price_per_day %></p>
-    </div>
-  </div>
-  <div class="garden-description">
-      <p><strong>Garden Description</strong>
-      <br>
-      <%= @garden.description%></p>
-  </div>
-</div>
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+  <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#exampleModal">
   Book now
-</button>
+  </button>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Your booking</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+         <h5 class="modal-title" id="exampleModalLabel">Your booking</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
       <div class="modal-body">
-        <p>Your booking request of <%= @garden.user.name%>'s garden was made!
+         <p>Your booking request of <%= @garden.user.name%>'s garden was made!
           <%= @garden.user.name %> will answer your request soon.
-        </p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" data-dismiss="modal" class="btn btn-primary">Browse gardens</button>
-      </div>
+         </p>
     </div>
+    <div class="modal-footer">
+      <button type="button" data-dismiss="modal" class="btn btn-primary">Browse gardens</button>
+    </div>
+    </div>
+    </div>
+   </div>
   </div>
+  </div>
+</div>
 </div>
