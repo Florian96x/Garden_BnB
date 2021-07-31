@@ -1,2 +1,9 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.container_gardens{
+  margin: 36px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+}
