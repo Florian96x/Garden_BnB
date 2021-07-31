@@ -3,5 +3,6 @@
 <%= simple_form_for [@garden, @booking] do |f| %>
   <%= f.input :start_date, as: :date %>
   <%= f.input :end_date, as: :date %>
+  <%= f.input :user_introduction, label: "Leave a message to the host", placeholder: "Write your message..." %>
   <%= f.submit %>
 <% end %>
