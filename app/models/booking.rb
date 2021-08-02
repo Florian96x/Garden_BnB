@@ -4,6 +4,11 @@ class Booking < ApplicationRecord
 
   validates :start_date, presence: true
   validates :end_date, presence: true
-  validates :user_introduction, length: { minimum: 15 }
-  validates :total_price, presence: true
+
+  validate :end_date_after_start_date?
+    def end_date_after_start_date?
+      if end_date < start_date
+        errors.add :end_date, "must be after start date"
+      end
+    end
 end

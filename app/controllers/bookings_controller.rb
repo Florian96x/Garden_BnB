@@ -6,13 +6,14 @@ class BookingsController < ApplicationController
   end
 
   def new
+    @garden = Garden.find(params[:garden_id])
     @booking = Booking.new
     authorize @booking
   end
 
   def create
+    @booking = Booking.new(bookings_params)
     @garden = Garden.find(params[:garden_id])
-    @booking = Booking.new(booking_params)
     @booking.garden = @garden
     @booking.user = current_user
     authorize @booking
@@ -31,7 +32,7 @@ class BookingsController < ApplicationController
   private
 
   def bookings_params
-    params.require(:booking).permit(:user_introduction, :total_price, :start_date, :end_date)
+    params.require(:booking).permit(:user_introduction, :start_date, :end_date)
   end
 
   # TO DO, implement total_price logic
