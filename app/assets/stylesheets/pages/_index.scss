@@ -1,9 +1,19 @@
 // Import page-specific CSS files here.
-@import "home";
+// @import "home";
+
+.main-container {
+  display: flex;
+}
 
 .container_gardens{
+  flex-grow: 1;
   margin: 36px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
+}
+
+#map {
+  position: sticky;
+  top: 0;
 }
