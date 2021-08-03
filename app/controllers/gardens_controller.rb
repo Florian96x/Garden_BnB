@@ -3,6 +3,14 @@ class GardensController < ApplicationController
 
   def index
     @gardens = policy_scope(Garden).order(created_at: :desc)
+    # geolocation markers
+    @markers = @gardens.geocoded.map do |garden|
+      {
+        lat: garden.latitude,
+        lng: garden.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { garden: garden })
+      }
+    end
   end
 
   def new

@@ -22,23 +22,22 @@ require("channels")
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
 
+// CSS
+import 'mapbox-gl/dist/mapbox-gl.css';
+
 // External imports
 import "bootstrap";
 
-import { rangePlugin } from "../plugins/flatpickr";
+// Internal imports:
 import { initFlatpickr } from "../plugins/flatpickr";
+import { initMapbox } from '../plugins/init_mapbox';
+import { initAutocomplete } from '../plugins/init_autocomplete';
 
 // Flatpicker for forms
 initFlatpickr();
-rangePlugin();
-
-// Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   initFlatpickr();
-  rangePlugin();
-  // Call your functions here, e.g:
-  // initSelect2();
+  initMapbox();
+  initAutocomplete();
 });
-
