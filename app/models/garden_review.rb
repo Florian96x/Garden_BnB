@@ -1,0 +1,2 @@
+class GardenReview < ApplicationRecord
+end

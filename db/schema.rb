@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_03_181730) do
+ActiveRecord::Schema.define(version: 2021_08_03_182343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,17 @@ ActiveRecord::Schema.define(version: 2021_08_03_181730) do
     t.boolean "accepted", default: false
     t.index ["garden_id"], name: "index_bookings_on_garden_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "garden_reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.text "content"
+    t.bigint "garden_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["garden_id"], name: "index_garden_reviews_on_garden_id"
+    t.index ["user_id"], name: "index_garden_reviews_on_user_id"
   end
 
   create_table "gardens", force: :cascade do |t|
@@ -58,5 +69,7 @@ ActiveRecord::Schema.define(version: 2021_08_03_181730) do
 
   add_foreign_key "bookings", "gardens"
   add_foreign_key "bookings", "users"
+  add_foreign_key "garden_reviews", "gardens"
+  add_foreign_key "garden_reviews", "users"
   add_foreign_key "gardens", "users"
 end
