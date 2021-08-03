@@ -23,7 +23,7 @@ class GardensController < ApplicationController
     @garden.user = current_user
     authorize @garden
     if @garden.save
-      redirect_to garden_path(@gardens)
+      redirect_to garden_path(@garden)
     else
       render :new
     end
@@ -36,7 +36,7 @@ class GardensController < ApplicationController
 
   private
 
-  def gardens_params
-    params.require(:garden).permit(:name, :description, :address, :available_dates, :price_per_day, :photo)
+  def garden_params
+    params.require(:garden).permit(:name, :description, :address, :available_dates, :price_per_day, photos: [])
   end   
 end
