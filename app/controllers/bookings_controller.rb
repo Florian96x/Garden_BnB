@@ -19,6 +19,7 @@ class BookingsController < ApplicationController
     authorize @booking
     
     if @booking.save
+      add_booked_days_to_garden(@booking, @garden)
       redirect_to booking_path(@booking)
     else
       render :new
@@ -33,6 +34,19 @@ class BookingsController < ApplicationController
 
   def bookings_params
     params.require(:booking).permit(:user_introduction, :start_date, :end_date)
+  end
+
+  def add_booked_days_to_garden(booking, garden)
+    garden.booked << datetime_sequence(booking.start_date, booking.end_date)
+  end
+
+  def datetime_sequence(start, stop)
+    dates = [start]
+    while dates.last < (stop - 1.day)
+      dates << (dates.last + 1.day)
+    end
+    dates << stop
+    return dates
   end
 
   # TO DO, implement total_price logic
