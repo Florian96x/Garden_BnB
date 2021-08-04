@@ -5,7 +5,7 @@ class Booking < ApplicationRecord
   validates :start_date, presence: true
   validates :end_date, presence: true
 
-  validates :status, inclusion: { in: %w(pending accepted declined) }
+  # validates :status, inclusion: { in: %w(pending accepted declined) }
 
   validate :end_date_after_start_date?
     def end_date_after_start_date?
@@ -14,9 +14,13 @@ class Booking < ApplicationRecord
       end
     end
 
-
   def add_booked_days_to_garden
     self.garden.booked << { from: self.start_date, to: self.end_date }
+  end
+
+  def total_price
+    days = (self.end_date - self.start_date).to_i
+    self.garden.price_per_day * days
   end
 
   # def datetime_sequence(start, stop)
