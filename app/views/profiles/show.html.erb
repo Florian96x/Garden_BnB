@@ -1,0 +1,39 @@
+
+<div class="container">
+  <p><%= current_user.name %></p>
+
+  <% user_bookings = Booking.where(user: current_user) %>
+  <% user_gardens = current_user.gardens %>
+
+  <% unless user_bookings.empty? %>
+    <h2>My bookings</h2>
+    <% user_bookings.each do |b| %>
+      <p>Your booking at <%= b.garden.user.name %>'s garden</p>
+      <p><%= b.garden.name %></p>
+      <p><%= b %></p>
+    <% end %>
+  <% end %>
+
+  <% unless user_gardens.empty? %>
+    <h2>My gardens</h2>
+    <% user_gardens.each do |g| %>
+      <p><%= g %></p>
+      <% unless g.bookings.empty? %>
+        <h4>Bookings:</h4>
+
+        <% g.bookings.each do |book| %>
+          <p>Guest:<%= book.user.name %></p>
+          <p>Time: <%= book.start_date %> - <%= book.end_date %></p>
+          <p>Status: <%= book.status %></p>
+          <div class="flex" data-status="<%= book.status.to_json %>" data-dates="<%= book.status.to_json %>">
+            <% if book.status == "pending" %>
+              <div class="btn btn-success" id="accept">Accept</div>
+              <div class="btn btn-danger" id="decline">Decline</div>
+            <% end %>
+          </div>
+        <% end %>
+
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
