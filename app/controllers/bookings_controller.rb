@@ -33,6 +33,18 @@ class BookingsController < ApplicationController
   def update
   end
 
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.update_column(:status, "accepted")
+    @booking.add_booked_days_to_garden
+    authorize @booking
+    redirect_to profile_path(current_user)
+    # respond_to do |format|
+    #   format.html { redirect_to profile_path(current_user) }
+    #   format.js
+    # end
+  end
+
   private
 
   def bookings_params

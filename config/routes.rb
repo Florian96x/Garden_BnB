@@ -6,5 +6,9 @@ Rails.application.routes.draw do
   resources :gardens, only: [:index, :new, :create, :show] do
     resources :bookings, only: [:new, :create] 
   end
-  resources :bookings, only: [:show]
+  resources :bookings, only: [:show] do
+    member do
+      put :accept
+    end
+  end
 end
