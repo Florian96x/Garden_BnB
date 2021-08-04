@@ -8,7 +8,8 @@ const initFlatpickr = () => {
     altFormat: "F j, Y",
     dateFormat: "Y-m-d",
     minDate: "today",
-    plugins: [new rangePlugin({ input: "#range_end"})]
+    plugins: [new rangePlugin({ input: "#range_end"})],
+    // disable:
   });
 }
 
