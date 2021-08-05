@@ -6,4 +6,12 @@ class User < ApplicationRecord
   
   has_many :bookings, dependent: :destroy
   has_many :gardens, dependent: :destroy
+
+  has_one :profile, dependent: :destroy
+  after_create :init_profile
+
+  def init_profile
+    self.create_profile!
+  end
+  
 end

@@ -2,7 +2,11 @@ class GardensController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @gardens = policy_scope(Garden).order(created_at: :desc)
+    if params[:query].present?
+      @gardens = policy_scope(Garden).search_by_address(params[:query])
+    else
+      @gardens = policy_scope(Garden).order(created_at: :desc)
+    end
     # geolocation markers
     @markers = @gardens.geocoded.map do |garden|
       {
