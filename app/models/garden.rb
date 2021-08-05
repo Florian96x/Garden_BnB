@@ -7,6 +7,8 @@ class Garden < ApplicationRecord
   validates :address, presence: true
   validates :price_per_day, presence: true
 
+  serialize :booked,Array
+
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 

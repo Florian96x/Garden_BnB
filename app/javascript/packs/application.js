@@ -29,15 +29,15 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import "bootstrap";
 
 // Internal imports:
-import { initFlatpickr } from "../plugins/flatpickr";
+import { makeCalendar } from "../plugins/flatpickr";
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 
 // Flatpicker for forms
-initFlatpickr();
+makeCalendar();
 
 document.addEventListener('turbolinks:load', () => {
-  initFlatpickr();
+  makeCalendar();
   initMapbox();
   initAutocomplete();
 });
