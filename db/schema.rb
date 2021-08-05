@@ -11,8 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 
-ActiveRecord::Schema.define(version: 2021_08_03_193401) do
-=======
+
 ActiveRecord::Schema.define(version: 2021_08_04_131703) do
 
 

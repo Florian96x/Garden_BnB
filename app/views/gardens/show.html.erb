@@ -4,7 +4,12 @@
 <div class="container-garden">
  <h2><%= @garden.name %></h2>
   <div class="row justify-content-around">
-    <div class="col-2">
+    <% if @garden.photos.attached? %>
+    <% @garden.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 220, width: 220, crop: :fill %>
+  <% end %>
+  <% else %>
+   <div class="col-2">
       <img src="https://source.unsplash.com/random/220x220/?garden">
     </div>
     <div class="col-2">
@@ -17,13 +22,8 @@
       <img src="https://source.unsplash.com/random/220x220/?garden">
     </div>
   </div>
-
-  <!-- Create garden images -->
-
-  <% @garden.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 220, width: 220, crop: :fill %>
-  <% end %>
 </div>
+<% end %>
 
  <!-- Garden Location and Price -->
  <div class="garden-content">
@@ -63,5 +63,4 @@
    </div>
   </div>
   </div>
-</div>
 </div>
