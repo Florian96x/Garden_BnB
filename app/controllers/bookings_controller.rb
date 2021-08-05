@@ -36,13 +36,13 @@ class BookingsController < ApplicationController
     @booking.update_column(:status, "accepted")
     add_booked_days_to_garden(@booking)
     authorize @booking
-    redirect_to profile_path(current_user)
+    redirect_to profile_path(current_user, anchor: "booking-#{@booking.id}")
   end
 
   def decline
     @booking.update_column(:status, "declined")
     authorize @booking
-    redirect_to profile_path(current_user)
+    redirect_to profile_path(current_user, anchor: "booking-#{@booking.id}")
   end
 
   private
