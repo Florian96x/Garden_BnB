@@ -19,29 +19,30 @@
   <% unless user_gardens.empty? %>
     <h2>My gardens</h2>
     <% user_gardens.each do |g| %>
-    <div class="garden-info">
-      <p><%= g.name %></p>
-      <%= link_to "Block days for you", new_garden_booking_path(g), class: "btn btn-primary"%>
-    </div>
+      <div class="garden-info">
+        <p><%= g.name %></p>
+        <%= link_to "Block days for you", new_garden_booking_path(g), class: "btn btn-primary"%>
+      </div>
 
       <% unless g.bookings.empty? %>
         <h4>Bookings:</h4>
 
         <% g.bookings.each do |book| %>
+
           <% unless book.user == current_user %>
-            <p>Guest:<%= book.user.name %></p>
-            <p>Time: <%= book.start_date %> - <%= book.end_date %></p>
-            <p>Status: <%= book.status %></p>
-            <div class="flex" data-status="<%= book.status.to_json %>" data-dates="<%= book.status.to_json %>">
-              <% if book.status == "pending" %>
-                <%= link_to "Accept",accept_booking_path(book), :method=>"PUT",  class: "btn btn-success", remote: true%>
-                <%= link_to "Decline",decline_booking_path(book), :method=>"PUT",  class: "btn btn-danger", remote: true%>
-              <% end %>
+            <div id="booking-<%= book.id %>">
+              <p>Guest:<%= book.user.name %></p>
+              <p>Time: <%= book.start_date %> - <%= book.end_date %></p>
+              <p>Status: <%= book.status %></p>
+              <div class="flex" data-status="<%= book.status.to_json %>" data-dates="<%= book.status.to_json %>">
+                <% if book.status == "pending" %>
+                  <%= link_to "Accept",accept_booking_path(book), :method=>"PUT",  class: "btn btn-success", remote: true%>
+                  <%= link_to "Decline",decline_booking_path(book), :method=>"PUT",  class: "btn btn-danger", remote: true%>
+                <% end %>
+              </div>
             </div>
           <% end %>
-
         <% end %>
-
       <% end %>
     <% end %>
   <% end %>
