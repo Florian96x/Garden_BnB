@@ -1,6 +1,29 @@
-<p>
-  Thank you for your booking! Here the recap of your dates:
-  <br>
-  <%= @booking.start_date %>
-  <%= @booking.end_date %>
-</p>
+<%= render 'shared/navbar'%>
+
+<div class="confirmation-page">
+    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path('garden.jpg') %>);">
+      <div class="container">
+        <h1>Thank you for your booking!</h1>
+        <p>Your request has been sent to the host!
+        <br>
+          Please wait for the confirmation.
+        </p>
+      </div>
+    </div>
+
+    <div class="container-booking-details">
+      <div class="container-booking-info">
+        <p class="booking-details"> Booking details </p>
+        <p class="booking-details">You will be staying at:</p>
+        <p class="booking-data"><%= @booking.garden.name.upcase %> </p>
+        <p class="booking-data"><%= @booking.garden.address %></p>
+        <p class="booking-data">From <%= @booking.start_date %> </p>
+        <p class="booking-data">To <%= @booking.end_date %></p>
+        <p class="booking-data">Total price: <%= @booking.total_price %></p>
+      </div>
+
+      <div class="container-garden-image">
+        <img src="https://source.unsplash.com/random/220x220/?garden">
+      </div>
+    </div>
+</div>
