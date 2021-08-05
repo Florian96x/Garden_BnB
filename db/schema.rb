@@ -10,10 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-
-ActiveRecord::Schema.define(version: 2021_08_03_191625) do
-
+ActiveRecord::Schema.define(version: 2021_08_03_193401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,21 +45,9 @@ ActiveRecord::Schema.define(version: 2021_08_03_191625) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "accepted", default: false
     t.string "status"
     t.index ["garden_id"], name: "index_bookings_on_garden_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
-  end
-
-  create_table "garden_reviews", force: :cascade do |t|
-    t.integer "rating"
-    t.text "content"
-    t.bigint "garden_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["garden_id"], name: "index_garden_reviews_on_garden_id"
-    t.index ["user_id"], name: "index_garden_reviews_on_user_id"
   end
 
   create_table "gardens", force: :cascade do |t|
@@ -77,6 +62,11 @@ ActiveRecord::Schema.define(version: 2021_08_03_191625) do
     t.float "latitude"
     t.float "longitude"
     t.index ["user_id"], name: "index_gardens_on_user_id"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -95,7 +85,5 @@ ActiveRecord::Schema.define(version: 2021_08_03_191625) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "gardens"
   add_foreign_key "bookings", "users"
-  add_foreign_key "garden_reviews", "gardens"
-  add_foreign_key "garden_reviews", "users"
   add_foreign_key "gardens", "users"
 end
