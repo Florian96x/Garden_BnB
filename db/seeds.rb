@@ -62,7 +62,8 @@ Garden.create!(
   description: "Our garden is an enchanted garden. It is wide and open, sloping gently down to a cosmic-blue river. A copse of cypress pines flanks us on one side, with a thicket of peaceful beeches standing guard on the other. Apple trees run through the centre of the garden, casting a lake of claw shadows onto the grass. In autumn, the fiery brilliance of their leaves is a sight: scorching-oranges, burning-browns and molten-reds. Then they drift to the ground as silently and carelessly as an ash cloud, settling in to their eternal rest.",
   address: "Berlin Weissensee",
   price_per_day: 25,
-  user: User.find_by(name: "Nahuel")
+  user: User.find_by(name: "Nahuel"),
+  booked: [{:from=>Date.new(2021,8,23), :to=>Date.new(2021,8,26)}]
 )
 puts "created #{Garden.last.user.name}'s Garden #{Garden.last.name}"
 puts ""
@@ -74,7 +75,7 @@ Booking.create!(
     end_date: Faker::Date.forward(days: 14),
     user_introduction: 'Hello, I would love to book your beautiful garden',
     total_price: 100,
-    user: User.find_by(name: "Chloe"),
+    user: User.find_by(name: "Andrea"),
     garden: Garden.find_by(name: "Every dogs dream! Grandpa's backyard turned into a playground"),
 )
 
@@ -83,7 +84,7 @@ Booking.create!(
     end_date: Faker::Date.forward(days: 14),
     user_introduction: 'Hello, I would love to book your beautiful garden',
     total_price: 100,
-    user: User.find_by(name: "Nahuel"),
+    user: User.find_by(name: "Kim"),
     garden: Garden.find_by(name: "A cool, quiet corner of the world"),
 )
 
@@ -92,7 +93,7 @@ Booking.create!(
     end_date: Faker::Date.forward(days: 14),
     user_introduction: 'Hello, I would love to book your beautiful garden',
     total_price: 100,
-    user: User.find_by(name: "Kim"),
+    user: User.find_by(name: "Chloe"),
     garden: Garden.find_by(name: "Exotic garden for misfit plants"),
 )
 
@@ -101,7 +102,7 @@ Booking.create!(
     end_date: Faker::Date.forward(days: 14),
     user_introduction: 'Hello, I would love to book your beautiful garden',
     total_price: 100,
-    user: User.find_by(name: "Andrea"),
+    user: User.find_by(name: "Nahuel"),
     garden: Garden.find_by(name: "Homecoming"),
 )
 puts ""

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :bookings, only: [:show] do
     member do
       put :accept
+      put :decline
     end
   end
 end

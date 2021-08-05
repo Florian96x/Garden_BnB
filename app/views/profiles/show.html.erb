@@ -28,8 +28,7 @@
           <div class="flex" data-status="<%= book.status.to_json %>" data-dates="<%= book.status.to_json %>">
             <% if book.status == "pending" %>
               <%= link_to "Accept",accept_booking_path(book), :method=>"PUT",  class: "btn btn-success", remote: true%>
-              <!-- <div class="btn btn-success" id="accept">Accept</div> -->
-              <div class="btn btn-danger" id="decline">Decline</div>
+              <%= link_to "Decline",decline_booking_path(book), :method=>"PUT",  class: "btn btn-danger", remote: true%>
             <% end %>
           </div>
         <% end %>

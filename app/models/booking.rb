@@ -22,13 +22,4 @@ class Booking < ApplicationRecord
     days = (self.end_date - self.start_date).to_i
     self.garden.price_per_day * days
   end
-
-  # def datetime_sequence(start, stop)
-  #   dates = [start]
-  #   while dates.last < (stop - 1.day)
-  #     dates << (dates.last + 1.day)
-  #   end
-  #   dates << stop
-  #   return dates
-  # end
 end
