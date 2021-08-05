@@ -28,9 +28,13 @@
     <div class="card-location">
       <p><%= @garden.address %></p>
       <p><strong>Price Per Day:</strong> €<%= @garden.price_per_day %></p>
+      <%= link_to "Book now", new_garden_booking_path(@garden), {:class => "btn btn-success btn-block"}%>  
+    </div>
+  </div>
+</div>
 
-<!-- Button trigger modal -->
-  <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#exampleModal">
+
+<button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#exampleModal">
   Book now
   </button>
 
@@ -55,6 +59,3 @@
     </div>
    </div>
   </div>
-  </div>
-</div>
-</div>
