@@ -24,7 +24,6 @@ class GardensController < ApplicationController
 
   def create
     @garden = Garden.new(garden_params)
-    @garden.booked << { from: garden_params[:start_date], to: garden_params[:end_date]}
     @garden.user = current_user
     authorize @garden
     if @garden.save
@@ -42,7 +41,7 @@ class GardensController < ApplicationController
   private
 
   def gardens_params
-    params.require(:garden).permit(:name, :description, :address, :price_per_day, :start_date, :end_date)
+    params.require(:garden).permit(:name, :description, :address, :price_per_day)
   end
 
 end

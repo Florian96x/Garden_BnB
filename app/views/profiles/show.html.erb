@@ -8,29 +8,38 @@
   <% unless user_bookings.empty? %>
     <h2>My bookings</h2>
     <% user_bookings.each do |b| %>
-      <p>Your booking at <%= b.garden.user.name %>'s garden</p>
-      <p><%= b.garden.name %></p>
-      <p><%= b %></p>
+      <% unless b.garden.user == current_user %>
+        <p>Your booking at <%= b.garden.user.name %>'s garden</p>
+        <p><%= b.garden.name %></p>
+        <p><%= b %></p>
+      <% end %>
     <% end %>
   <% end %>
 
   <% unless user_gardens.empty? %>
     <h2>My gardens</h2>
     <% user_gardens.each do |g| %>
-      <p><%= g %></p>
+    <div class="garden-info">
+      <p><%= g.name %></p>
+      <%= link_to "Block days for you", new_garden_booking_path(g), class: "btn btn-primary"%>
+    </div>
+
       <% unless g.bookings.empty? %>
         <h4>Bookings:</h4>
 
         <% g.bookings.each do |book| %>
-          <p>Guest:<%= book.user.name %></p>
-          <p>Time: <%= book.start_date %> - <%= book.end_date %></p>
-          <p>Status: <%= book.status %></p>
-          <div class="flex" data-status="<%= book.status.to_json %>" data-dates="<%= book.status.to_json %>">
-            <% if book.status == "pending" %>
-              <%= link_to "Accept",accept_booking_path(book), :method=>"PUT",  class: "btn btn-success", remote: true%>
-              <%= link_to "Decline",decline_booking_path(book), :method=>"PUT",  class: "btn btn-danger", remote: true%>
-            <% end %>
-          </div>
+          <% unless book.user == current_user %>
+            <p>Guest:<%= book.user.name %></p>
+            <p>Time: <%= book.start_date %> - <%= book.end_date %></p>
+            <p>Status: <%= book.status %></p>
+            <div class="flex" data-status="<%= book.status.to_json %>" data-dates="<%= book.status.to_json %>">
+              <% if book.status == "pending" %>
+                <%= link_to "Accept",accept_booking_path(book), :method=>"PUT",  class: "btn btn-success", remote: true%>
+                <%= link_to "Decline",decline_booking_path(book), :method=>"PUT",  class: "btn btn-danger", remote: true%>
+              <% end %>
+            </div>
+          <% end %>
+
         <% end %>
 
       <% end %>
