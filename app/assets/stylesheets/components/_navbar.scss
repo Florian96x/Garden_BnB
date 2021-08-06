@@ -1,8 +1,6 @@
 .navbar-lewagon {
-  // position: sticky;
-  // top: 0;
   justify-content: space-between;
-  background: none;
+  background-color: none;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -26,4 +24,11 @@
   text-decoration: none;
   color: white;
   background-color: rgba(255,255,255, 0.2);
+}
+
+.navbar-special {
+  background-color: #153131;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
 }

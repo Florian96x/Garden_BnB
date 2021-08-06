@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm  navbar-fixed-top navbar-lewagon bg-dark">
+<div class="navbar navbar-expand-sm  navbar-fixed-top navbar-lewagon navbar-special">
   <a class="navbar-brand" href="/">
     <%= image_tag('logo-gardenBnB-normal.png') %>
    </a>
@@ -7,7 +7,7 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item dropdown">
-        <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/Florian96x" />
+        <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://bootdey.com/img/Content/avatar/avatar7.png" style="background-color: #fc7A1e;" />
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <%= link_to "Profile", profile_path(current_user), class: "dropdown-item" %>
           <a class="dropdown-item" href="#">Settings</a>

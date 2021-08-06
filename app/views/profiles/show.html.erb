@@ -1,55 +1,228 @@
+<%= render 'shared/navbar'%>
+<div class="container" style="padding: 50px 15px;">
+  <div class="main-body">
 
-<div class="container">
-  <p><%= current_user.name %></p>
-
-  <% user_bookings = Booking.where(user: current_user) %>
-  <% user_gardens = current_user.gardens %>
-
-  <% unless user_bookings.empty? %>
-    <h2>My bookings</h2>
-    <% user_bookings.each do |b| %>
-      <% unless b.garden.user == current_user %>
-        <p>Your booking at <%= b.garden.user.name %>'s garden</p>
-        <p><%= b.garden.name %></p>
-        <p><%= b %></p>
-      <% end %>
-    <% end %>
-  <% end %>
-
-  <% unless user_gardens.empty? %>
-    <h2>My gardens</h2>
-    <% user_gardens.each do |g| %>
-      <div class="garden-info">
-        <p><%= g.name %></p>
-        <%= link_to "Block days for you", new_garden_booking_path(g), class: "btn btn-primary"%>
-      </div>
-
-      <% unless g.bookings.empty? %>
-        <h4>Bookings:</h4>
-
-        <% g.bookings.each do |book| %>
-
-          <% unless book.user == current_user %>
-            <div id="booking-<%= book.id %>">
-              <p>Guest:<%= book.user.name %></p>
-              <p>Time: <%= book.start_date %> - <%= book.end_date %></p>
-              <p>Status: <% if book.status == "accepted"%>
-                         <i class="far fa-check-circle" style="color:#1EDD88"></i>
-                         <% elsif book.status == "declined"%>
-                         <i class="far fa-times-circle" style="color:red"></i>
-                         <% else %>
-                         <i class="far fa-clock" style="color:grey"></i>
-                         <% end %></p>
-              <div class="flex" data-status="<%= book.status.to_json %>" data-dates="<%= book.status.to_json %>">
-                <% if book.status == "pending" %>
-                  <%= link_to "Accept",accept_booking_path(book), :method=>"PUT",  class: "btn btn-success", remote: true%>
-                  <%= link_to "Decline",decline_booking_path(book), :method=>"PUT",  class: "btn btn-danger", remote: true%>
-                <% end %>
+    <div class="row gutters-sm">
+      <div class="col-md-4 mb-3">
+        <div class="card" id="profile-summary">
+          <div class="card-body">
+            <div class="d-flex flex-column align-items-center text-center">
+              <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+              <div class="mt-3">
+                <h4><%= current_user.name %></h4>
+                <p class="text-secondary mb-1"><%= ["Happy gardener", "Outdoor fanatic", "Garden freak", "Nature lover"].sample %></p>
+                <p class="text-muted font-size-sm">Berlin</p>
+                <hr>
+                <p class="text-secondary mb-1"> <i class="fas fa-comment" style="color: #f9c784;"></i> 0 reviews</p>
+                <p class="text-secondary mb-1"> <i class="fas fa-certificate" style="color: #45cb85;"></i> Identity verified</p>
+                <hr>
+                <a class="btn btn-edit btn-layout" target="__blank" href="#">Edit</a>
               </div>
             </div>
-          <% end %>
+          </div>
+        </div>
+      </div>
+
+      <!-- User Bookings -->
+      <% user_bookings = Booking.where(user: current_user) %>
+      <% user_gardens = current_user.gardens %>
+
+      <div class="col-md-8">
+        <% unless user_bookings.empty? %>
+          <div class="card mb-3">
+            <div class="card-body">
+
+              <div class="row">
+                <div class="col-sm-12 d-flex justify-content-between">
+                  <h3 class="mb-0" style="padding-left: 8px;">My bookings (<%= user_bookings.reject{ |b| b.garden.user.name == b.user.name }.count %>)</h3>
+                  <h3 class="mb-0" style="padding-right: 16px;"><i class="far fa-calendar-alt"></i></h3>
+                </div>
+              </div>
+
+              <% user_bookings.each do |b| %>
+                <% unless b.garden.user == current_user %>
+                  <div class="garden" style="margin: 12px 0; background-color: #f5f5f5; padding: 8px 12px;">
+                    <div class="row pt-3">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0"><strong>Garden</strong> </h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        <%= b.garden.name %> by <%= b.garden.user.name %>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Address</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        <%= b.garden.address %>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Dates</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        From <%= b.start_date.strftime("%B %e, %Y") %> to <%= b.end_date.strftime("%B %e, %Y") %>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Status</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        <% if b.status == "accepted"%>
+                          <i class="far fa-check-circle" style="color:#1EDD88"></i>
+                        <% elsif b.status == "declined"%>
+                          <i class="far fa-times-circle" style="color:red"></i>
+                        <% else %>
+                          <p style="margin-bottom: 0;"><i class="far fa-clock" style="color:grey"></i> - <%= b.garden.user.name %> will soon reply</p>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
         <% end %>
-      <% end %>
-    <% end %>
-  <% end %>
+
+      <!-- User gardens -->
+        <% unless user_gardens.empty? %>
+
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="row">
+
+              <div class="col-sm-12 d-flex justify-content-between">
+                <h3 class="mb-0" style="padding-left: 8px;">My gardens (<%= user_gardens.count %>)</h3>
+                <h3 class="mb-0" style="padding-right: 16px; color:#153131;"><i class="fab fa-pagelines"></i></h3>
+              </div>
+            </div>
+            <% user_gardens.each do |g| %>
+              <div class="garden" style="margin: 12px 0; background-color: #f5f5f5; padding: 8px 12px;">
+                <div class="row pt-3">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0"><strong>Garden</strong> </h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    <%= g.name %>
+                  </div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Address</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    <%= g.address %>
+                  </div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Blocked days</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+
+                    <% owner_bookings = user_bookings.select{ |b| b.garden.user.name == b.user.name && b.garden == g}%>
+
+                    <% if owner_bookings.empty? %>
+                      No blocked days
+                    <% else %>
+
+                        <% owner_bookings.each do |ob|%>
+                         From <%= ob.start_date.strftime("%B %e, %Y") %> to <%= ob.end_date.strftime("%B %e, %Y") %><br>
+                        <% end %>
+
+                    <% end %>
+
+                  </div>
+                </div>
+
+                <hr>
+
+                <% unless g.bookings.empty? %>
+
+                  <div class="row">
+                    <div class="col-sm-9">
+                      <h6><i class="far fa-calendar-alt"></i> <strong>Bookings for this garden</strong></h6>
+                    </div>
+                  </div>
+
+                  <div class="card-body" style="background-color: #ededed; margin: 12px 0;">
+
+                    <% g.bookings.each do |book| %>
+                      <% unless book.user == current_user %>
+                        <div class="row" id="booking-<%= book.id %>">
+                          <div class="col-sm-3">
+                            <h6 class="mb-0">Guest</h6>
+                          </div>
+                          <div class="col-sm-9 text-secondary">
+                            <%= book.user.name %>
+                          </div>
+                        </div>
+                        <hr>
+
+                        <div class="row">
+                          <div class="col-sm-3">
+                            <h6 class="mb-0">Dates</h6>
+                          </div>
+                          <div class="col-sm-9 text-secondary">
+                            From <%= book.start_date.strftime("%B %e, %Y") %> to <%= book.end_date.strftime("%B %e, %Y") %>
+                          </div>
+                        </div>
+                        <hr>
+
+                        <div class="row">
+                          <div class="col-sm-3">
+                            <h6 class="mb-0">Status</h6>
+                          </div>
+                          <div class="col-sm-9 text-secondary">
+                            <% if book.status == "accepted"%>
+                              <i class="far fa-check-circle" style="color:#1EDD88"></i>
+                            <% elsif book.status == "declined"%>
+                              <i class="far fa-times-circle" style="color:red"></i>
+                            <% else %>
+                              <p style="margin-bottom: 0;"><i class="far fa-clock" style="color:grey"></i> - please reply to <%= book.user.name  %> soon!</p>
+                            <% end %>
+                          </div>
+                        </div>
+                        <% if book.status == "pending" %>
+                          <hr>
+                          <div class="row">
+                            <div class="col-sm-12 d-flex justify-content-center">
+                              <%= link_to "Accept",accept_booking_path(book), :method=>"PUT",  class: "btn btn-accept btn-layout", remote: true%>
+                              <%= link_to "Decline",decline_booking_path(book), :method=>"PUT",  class: "btn btn-decline btn-layout", remote: true%>
+                            </div>
+                          </div>
+                      <% end %>
+
+                      <% end %>
+                    <% end %>
+                  </div>
+                <% end %>
+
+                <div class="row">
+                  <div class="col-sm-12 d-flex justify-content-center">
+                    <a class="btn btn-edit btn-layout" target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit</a>
+                    <%= link_to "Block days for me", new_garden_booking_path(g), class: "btn btn-block btn-layout"%>
+                  </div>
+                </div>
+
+              </div>
+            <% end %>
+          </div>
+         </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
