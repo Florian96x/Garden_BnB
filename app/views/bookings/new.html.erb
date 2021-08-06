@@ -1,17 +1,30 @@
-<%= render 'shared/navbar'%>
-
-<h1 style="margin: 0 auto;">New booking</h1>
-
-<div class="container">
-  <div class="form-wrapper"
-    style="width:350px; margin: 0 auto;"
-    id="booking_form"
-    data-booked="<%= @garden.booked.to_json %>">
+<% if current_user == @garden.user %>
+  <h1 style="margin: 0 auto;">Block days for my stay in my garden</h1>
+  <div class="container">
+    <div class="form-wrapper"
+      style="width:350px; margin: 0 auto;"
+      id="booking_form"
+      data-booked="<%= @garden.booked.to_json %>">
       <%= simple_form_for [@garden, @booking] do |f| %>
-      <%= f.input :start_date, as: :string, required: false, input_html: { id: "range_start" } %>
-      <%= f.input :end_date, as: :string, required: false, input_html: { id: "range_end" } %>
-      <%= f.input :user_introduction, label: "Leave a message to the host", placeholder: "Write your message..." %>
-      <%= f.submit "Book your garden", class: "btn btn-success" %>
-    <% end %>
+        <%= f.input :start_date, as: :string, required: false, input_html: { id: "range_start" } %>
+        <%= f.input :end_date, as: :string, required: false, input_html: { id: "range_end" } %>
+        <%= f.submit "Block days", class: "btn btn-success" %>
+      <% end %>
+    </div>
   </div>
-</div>
+<% else %>
+  <h1 style="margin: 0 auto;">New booking</h1>
+  <div class="container">
+    <div class="form-wrapper"
+      style="width:350px; margin: 0 auto;"
+      id="booking_form"
+      data-booked="<%= @garden.booked.to_json %>">
+      <%= simple_form_for [@garden, @booking] do |f| %>
+        <%= f.input :start_date, as: :string, required: false, input_html: { id: "range_start" } %>
+        <%= f.input :end_date, as: :string, required: false, input_html: { id: "range_end" } %>
+        <%= f.input :user_introduction, label: "Leave a message to the host", placeholder: "Write your message..." %>
+        <%= f.submit "Book your garden", class: "btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

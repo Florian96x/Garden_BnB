@@ -18,9 +18,14 @@ class BookingsController < ApplicationController
     @booking.garden = @garden
     @booking.user = current_user
     authorize @booking
-    
     if @booking.save
-      redirect_to booking_path(@booking)
+      if @garden.user == current_user
+        @booking.update_column(:status, "accepted")
+        add_booked_days_to_garden(@booking)
+        redirect_to profile_path(current_user)
+      else
+        redirect_to booking_path(@booking)
+      end
     else
       render :new
     end
