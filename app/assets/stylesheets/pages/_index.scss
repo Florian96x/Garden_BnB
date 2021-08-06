@@ -29,15 +29,3 @@
   grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
 }
-
-
-.container-map {
-  flex-grow: 0;
-  width: 600px;
-  // margin: 36px;
-}
-
-#map {
-  position: sticky;
-  top: 0;
-}
