@@ -41,3 +41,13 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
 });
+
+
+// Carousel for garden-show view
+
+
+$(document).ready(function() {
+  $('#myCarousel').carousel({
+    interval: 10000
+  });
+});

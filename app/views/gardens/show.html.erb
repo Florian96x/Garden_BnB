@@ -8,8 +8,9 @@
   <%= cl_image_tag photo.key, height: 220, width: 220, crop: :fill %>
   <% end %>
   <% else %>
+
 <!-- Carousel wrapper -->
-<div id="carouselBasicExample" class="carousel slide carousel-fade" data-mdb-ride="carousel">
+<div id = "myCarousel" class="carousel slide span12" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
     <li data-mdb-target="#carouselBasicExample" data-mdb-slide-to="0" class="active"></li>
@@ -24,7 +25,6 @@
       <img
         src="https://source.unsplash.com/featured/?garden"
         class="d-block w-100"
-        alt="..."
       />
     </div>
 
@@ -33,7 +33,6 @@
       <img
         src="https://source.unsplash.com/featured/?garden"
         class="d-block w-100"
-        alt="..."
       />
     </div>
 
@@ -42,7 +41,6 @@
       <img
         src="https://source.unsplash.com/featured/?garden"
         class="d-block w-100"
-        alt="..."
       />
     </div>
   </div>
