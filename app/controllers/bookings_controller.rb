@@ -33,7 +33,14 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
-    authorize @booking 
+    @qr_code = RQRCode::QRCode.new(@booking.qr_code)
+    @svg = @qr_code.as_svg(
+      offset: 0,
+      color: '000',
+      shape_rendering: 'crispEdges',
+      standalone: true
+    )
+    authorize @booking
   end
 
   def update
@@ -55,7 +62,7 @@ class BookingsController < ApplicationController
   private
 
   def bookings_params
-    params.require(:booking).permit(:user_introduction, :start_date, :end_date)
+    params.require(:booking).permit(:user_introduction, :start_date, :end_date, :qr_code)
   end
 
   def set_booking
@@ -67,5 +74,4 @@ class BookingsController < ApplicationController
     booked << { from: booking.start_date, to: booking.end_date }
     booking.garden.update_column(:booked, booked)
   end
-
 end

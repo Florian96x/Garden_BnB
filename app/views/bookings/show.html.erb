@@ -1,29 +1,30 @@
 <%= render 'shared/navbar'%>
 
 <div class="confirmation-page">
-    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path('garden.jpg') %>);">
-      <div class="container">
-        <h1>Thank you for your booking!</h1>
-        <p>Your request has been sent to the host!
-        <br>
-          Please wait for the confirmation.
-        </p>
-      </div>
+  <div class="confirmation-page-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path('garden.jpg') %>);">
+    <div class="container">
+      <h1>Thank you for you booking!</h1>
+      <p>Your request has been sent to the host!
+      <br>
+        Please wait for the confirmation.
+      </p>
+    </div>
+  </div>
+
+<div class="container text-center">
+  <div class="row">
+    <div class="col-sm">
+      <%= @svg.try(:html_safe) %>
     </div>
 
-    <div class="container-booking-details">
-      <div class="container-booking-info">
-        <p class="booking-details"> Booking details </p>
-        <p class="booking-details">You will be staying at:</p>
-        <p class="booking-data"><%= @booking.garden.name.upcase %> </p>
-        <p class="booking-data"><%= @booking.garden.address %></p>
-        <p class="booking-data">From <%= @booking.start_date %> </p>
-        <p class="booking-data">To <%= @booking.end_date %></p>
-        <p class="booking-data">Total price: <%= @booking.total_price %></p>
-      </div>
-
-      <div class="container-garden-image">
-        <img src="https://source.unsplash.com/random/220x220/?garden">
-      </div>
+    <div class="col-sm pt-4">
+      <div>You will be staying at:</div>
+      <div class="p-2 font-weight-bold"><%= @booking.garden.name.upcase %> </div>
+      <div class="p-2">Address: <%= @booking.garden.address %></div>
+      <div>From: <%= @booking.start_date.strftime("%B %e, %Y") %> </div>
+      <div>To: <%= @booking.end_date.strftime("%B %e, %Y") %></div>
+      <div class="p-2 font-weight-bold">Total Price: <%= @booking.total_price %>€</div>
     </div>
+  </div>
 </div>
+

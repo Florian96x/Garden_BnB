@@ -17,33 +17,3 @@
   position: sticky;
   top: 0;
 }
-
-.container-booking-details {
-  border-radius: 4px;
-  padding: 24px;
-  display: flex;
-  margin: auto;
-  width: 700;
-  border: solid 1px;
-}
-
-.container-booking-confirmation {
-  text-align: center;
-  font-size: 36px;
-  font-weight: bolder;
-}
-
-.container-booking-info {
-  padding: 32px;
-  margin-right: 32px;
-}
-
-.booking-details:first-child {
-  padding-bottom: 8px;
-  font-weight: bold;
-  font-size: 24px;
-}
-
-.container-booking-confirmation{
-  margin: auto;
-}
