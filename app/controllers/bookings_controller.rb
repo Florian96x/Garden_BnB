@@ -33,7 +33,7 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
-    @qr_code = RQRCode::QRCode.new(@booking.qr_code)
+    @qr_code = RQRCode::QRCode.new("www.lewagon.com")
     @svg = @qr_code.as_svg(
       offset: 0,
       color: '000',
