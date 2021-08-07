@@ -49,7 +49,7 @@ Garden.create!(
 puts "created #{Garden.last.user.name}'s Garden #{Garden.last.name}"
 
 Garden.create!(
-  name: "Exotic garden for misfit plants",
+  name: "Exotic garden for misfits",
   description: "As a busy mom and business owner my garden usually comes last on my list of priorities, so it really has to hold its own. I've often taken in discarded plants from job site remodels and tucked them in here and there, where they fill spots and thrive. If you are interested in a more bohemian garden, my garden is the best place to go.",
   address: "Berlin Johannisthal",
   price_per_day: 22,
