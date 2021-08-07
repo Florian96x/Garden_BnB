@@ -20,9 +20,18 @@ puts "Finished creating #{User.count} new Users"
 puts ""
 
 # making new Garden instances
+Garden.create!(
+  name: "Enchanted Garden Eden",
+  description: "Our garden is an enchanted garden. It is wide and open, sloping gently down to a cosmic-blue river. A copse of cypress pines flanks us on one side, with a thicket of peaceful beeches standing guard on the other. Apple trees run through the centre of the garden, casting a lake of claw shadows onto the grass. In autumn, the fiery brilliance of their leaves is a sight: scorching-oranges, burning-browns and molten-reds. Then they drift to the ground as silently and carelessly as an ash cloud, settling in to their eternal rest.",
+  address: "Berlin Weissensee",
+  price_per_day: 25,
+  user: User.find_by(name: "Nahuel"),
+  booked: [{:from=>Date.new(2021,8,23), :to=>Date.new(2021,8,26)}]
+)
+puts "created #{Garden.last.user.name}'s Garden #{Garden.last.name}"
 
 Garden.create!(
-  name: "Every dogs dream! Grandpa's backyard turned into a playground",
+  name: "Every dogs dream!",
   description: "We know the struggles of living with a pet in a big city. Our Charlie got his private amusement park 4 years ago, now we are only irregularly around and offer our garden for all animal lovers - equipment mainly aimed for dogs but every animal will enjoy it and owners will find their well-deserved break. You can bring your dog, cat, mouse, bee - as long as you clean up behind you!",
   address: "Berlin Schöneberg",
   price_per_day: 18,
@@ -31,7 +40,7 @@ Garden.create!(
 puts "created #{Garden.last.user.name}'s Garden #{Garden.last.name}"
 
 Garden.create!(
-  name: "A cool, quiet corner of the world",
+  name: "A quiet corner of the world",
   description: "15 years ago we planted a woodland garden, complete with a “forest floor” and a canopy of trees that provide deep shades of green and dappled sunlight. It's long been our private oasis but now we'd like to share this beauty with other 'gardenloving' people. We expect everyone to treat our garden with love and respect so it keeps being the paradise it is. No pets allowed.",
   address: "Berlin Grunewald",
   price_per_day: 38,
@@ -40,7 +49,7 @@ Garden.create!(
 puts "created #{Garden.last.user.name}'s Garden #{Garden.last.name}"
 
 Garden.create!(
-  name: "Exotic garden for misfit plants",
+  name: "Exotic garden for misfits",
   description: "As a busy mom and business owner my garden usually comes last on my list of priorities, so it really has to hold its own. I've often taken in discarded plants from job site remodels and tucked them in here and there, where they fill spots and thrive. If you are interested in a more bohemian garden, my garden is the best place to go.",
   address: "Berlin Johannisthal",
   price_per_day: 22,
@@ -55,16 +64,7 @@ Garden.create!(
   price_per_day: 34,
   user: User.find_by(name: "Andrea")
 )
-puts "created #{Garden.last.user.name}'s Garden #{Garden.last.name}"
 
-Garden.create!(
-  name: "Enchanted Garden Eden on the outskirts of the city",
-  description: "Our garden is an enchanted garden. It is wide and open, sloping gently down to a cosmic-blue river. A copse of cypress pines flanks us on one side, with a thicket of peaceful beeches standing guard on the other. Apple trees run through the centre of the garden, casting a lake of claw shadows onto the grass. In autumn, the fiery brilliance of their leaves is a sight: scorching-oranges, burning-browns and molten-reds. Then they drift to the ground as silently and carelessly as an ash cloud, settling in to their eternal rest.",
-  address: "Berlin Weissensee",
-  price_per_day: 25,
-  user: User.find_by(name: "Nahuel"),
-  booked: [{:from=>Date.new(2021,8,23), :to=>Date.new(2021,8,26)}]
-)
 puts "created #{Garden.last.user.name}'s Garden #{Garden.last.name}"
 puts ""
 puts "All done! Finished creating #{Garden.count} new gardens"
@@ -75,7 +75,7 @@ Booking.create!(
     end_date: Faker::Date.forward(days: 14),
     user_introduction: 'Hello, I would love to book your beautiful garden',
     user: User.find_by(name: "Andrea"),
-    garden: Garden.find_by(name: "Every dogs dream! Grandpa's backyard turned into a playground"),
+    garden: Garden.find_by(name: "Every dogs dream!"),
 )
 
 Booking.create!(
@@ -83,7 +83,7 @@ Booking.create!(
     end_date: Faker::Date.forward(days: 14),
     user_introduction: 'Hello, I would love to book your beautiful garden',
     user: User.find_by(name: "Kim"),
-    garden: Garden.find_by(name: "A cool, quiet corner of the world"),
+    garden: Garden.find_by(name: "A quiet corner of the world"),
 )
 
 Booking.create!(

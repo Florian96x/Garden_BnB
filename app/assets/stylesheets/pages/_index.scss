@@ -5,15 +5,27 @@
   display: flex;
 }
 
-.container_gardens{
+.garden-info {
   flex-grow: 1;
   margin: 36px;
+}
+
+.garden-header {
+  margin-bottom: 6px;
+}
+
+.garden-header p {
+  // padding-left: 8px;
+  padding-top: 8px;
+  padding-right: 4px;
+}
+
+.garden-header h2{
+  font-weight: bold;
+}
+
+.container-gardens{
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
-}
-
-#map {
-  position: sticky;
-  top: 0;
 }
