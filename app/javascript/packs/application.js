@@ -42,12 +42,3 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
 });
 
-
-// Carousel for garden-show view
-
-
-$(document).ready(function() {
-  $('#myCarousel').carousel({
-    interval: 10000
-  });
-});
