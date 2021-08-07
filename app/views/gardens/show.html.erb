@@ -69,7 +69,7 @@
     <div class="card-location">
       <p><%= @garden.address %></p>
       <p><strong>Price Per Day:</strong> €<%= @garden.price_per_day %></p>
-      <%= link_to "Book now", new_garden_booking_path(@garden), {:class => "btn btn-success btn-block"}%>  
+      <%= link_to "Book now", new_garden_booking_path(@garden), {:class => "btn btn-layout btn-book"}%>
     </div>
   </div>
 </div>

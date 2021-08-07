@@ -53,3 +53,16 @@
   color: #2e6d6d;
   border: 1px solid #2e6d6d;
 }
+
+.btn-book {
+ width: 120px;
+ color: white;
+ // border: 1px solid #153131;
+ // margin-left: 6px;
+ background-color: #153131;
+}
+.btn-book:hover {
+ color: white;
+ background-color: #2e6d6d;
+ // border: 1px solid #2e6d6d;
+}
