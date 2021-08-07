@@ -48,11 +48,7 @@ ActiveRecord::Schema.define(version: 2021_08_04_131703) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-<<<<<<< HEAD
-    t.string "status"
-=======
     t.string "status", default: "pending"
->>>>>>> master
     t.index ["garden_id"], name: "index_bookings_on_garden_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -74,11 +70,8 @@ ActiveRecord::Schema.define(version: 2021_08_04_131703) do
   create_table "profiles", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-<<<<<<< HEAD
-=======
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_profiles_on_user_id"
->>>>>>> master
   end
 
   create_table "users", force: :cascade do |t|
