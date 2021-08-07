@@ -74,7 +74,6 @@ Booking.create!(
     start_date: Date.today,
     end_date: Faker::Date.forward(days: 14),
     user_introduction: 'Hello, I would love to book your beautiful garden',
-    total_price: 100,
     user: User.find_by(name: "Andrea"),
     garden: Garden.find_by(name: "Every dogs dream!"),
 )
@@ -83,7 +82,6 @@ Booking.create!(
     start_date: Date.today,
     end_date: Faker::Date.forward(days: 14),
     user_introduction: 'Hello, I would love to book your beautiful garden',
-    total_price: 100,
     user: User.find_by(name: "Kim"),
     garden: Garden.find_by(name: "A quiet corner of the world"),
 )
@@ -92,7 +90,6 @@ Booking.create!(
     start_date: Date.today,
     end_date: Faker::Date.forward(days: 14),
     user_introduction: 'Hello, I would love to book your beautiful garden',
-    total_price: 100,
     user: User.find_by(name: "Chloe"),
     garden: Garden.find_by(name: "Exotic garden for misfit plants"),
 )
@@ -101,7 +98,6 @@ Booking.create!(
     start_date: Date.today,
     end_date: Faker::Date.forward(days: 14),
     user_introduction: 'Hello, I would love to book your beautiful garden',
-    total_price: 100,
     user: User.find_by(name: "Nahuel"),
     garden: Garden.find_by(name: "Homecoming"),
 )

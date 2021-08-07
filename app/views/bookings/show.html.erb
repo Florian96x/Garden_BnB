@@ -1,6 +1,31 @@
-<p>
-  Thank you for your booking! Here the recap of your dates:
-  <br>
-  <%= @booking.start_date %>
-  <%= @booking.end_date %>
-</p>
+<%= render 'shared/navbar'%>
+
+<div class="confirmation-page text-center">
+  <div class="confirmation-page-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path('garden.jpg') %>);">
+    <div class="container">
+      <h1>Thank you for you booking!</h1>
+      <p>Your request has been sent to the host!
+      <br>
+        Please wait for the confirmation.
+      </p>
+      <%= link_to "Check request status", profile_path(@booking), {:class => "btn btn-success"}%>  
+    </div>
+  </div>
+
+<div class="container text-center">
+  <div class="row">
+    <div class="col-sm">
+      <img src="https://source.unsplash.com/random/220x220/?garden">
+    </div>
+
+    <div class="col-sm pt-4">
+      <div>You will be staying at:</div>
+      <div class="p-2 font-weight-bold"><%= @booking.garden.name.upcase %> </div>
+      <div class="p-2">Address: <%= @booking.garden.address %></div>
+      <div>From: <%= @booking.start_date.strftime("%B %e, %Y") %> </div>
+      <div>To: <%= @booking.end_date.strftime("%B %e, %Y") %></div>
+      <div class="p-2 font-weight-bold">Total Price: <%= @booking.total_price %>€</div>
+    </div>
+  </div>
+</div>
+
