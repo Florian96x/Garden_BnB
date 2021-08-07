@@ -1,0 +1,55 @@
+#profile-summary {
+  position: sticky;
+  top: 120px;
+}
+
+.btn-layout {
+  border-radius: 20px;
+}
+
+.btn-edit {
+  width: 65px;
+  color: darkgrey;
+  border: 1px solid darkgrey;
+}
+
+.btn-edit:hover {
+  text-decoration: none;
+  color: lightgrey;
+  border: 1px solid lightgrey;
+}
+
+.btn-accept {
+  background-color: #45cb85;
+  color: white;
+  width: 80px;
+}
+
+.btn-accept:hover {
+  background-color: #2b9c61;
+  color: white;
+}
+
+.btn-decline {
+  background-color: #FC7A1E;
+  color: white;
+  width: 83px;
+  margin-left: 6px;
+}
+
+.btn-decline:hover{
+  background-color: #d25902;
+  color: white;
+}
+
+.btn-block {
+  width: 162px;
+  color: #153131;
+  border: 1px solid #153131;
+  margin-left: 6px;
+}
+
+.btn-block:hover {
+  color: #2e6d6d;
+  border: 1px solid #2e6d6d;
+}
