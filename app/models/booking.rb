@@ -19,7 +19,7 @@ class Booking < ApplicationRecord
   end
 
   def total_price
-    days = (self.end_date - self.start_date).to_i
+    days = ((self.end_date - self.start_date) + 1).to_i
     self.garden.price_per_day * days
   end
 end
