@@ -75,11 +75,11 @@
                       </div>
                       <div class="col-sm-9 text-secondary">
                         <% if b.status == "accepted"%>
-                          <i class="far fa-check-circle" style="color:#1EDD88"></i>
+                          <p style="margin-bottom: 0;"><i class="far fa-check-circle" style="color:#1EDD88; margin-right: 4px;"></i> <%= b.garden.user.name %> accepted your request</p>
                         <% elsif b.status == "declined"%>
-                          <i class="far fa-times-circle" style="color:red"></i>
+                          <p style="margin-bottom: 0;"><i class="far fa-times-circle" style="color:red; margin-right: 4px;"></i> <%= b.garden.user.name %> declined your request</p>
                         <% else %>
-                          <p style="margin-bottom: 0;"><i class="far fa-clock" style="color:grey"></i> - <%= b.garden.user.name %> will soon reply</p>
+                          <p style="margin-bottom: 0;"><i class="far fa-clock" style="color:grey; margin-right: 4px;"></i> <%= b.garden.user.name %> will soon reply</p>
                         <% end %>
                       </div>
                     </div>
@@ -157,10 +157,11 @@
                     </div>
                   </div>
 
-                  <div class="card-body" style="background-color: #ededed; margin: 12px 0;">
 
-                    <% g.bookings.each do |book| %>
-                      <% unless book.user == current_user %>
+
+                  <% g.bookings.each do |book| %>
+                    <% unless book.user == current_user %>
+                      <div class="card-body" style="background-color: #ededed; margin: 12px 0;">
                         <div class="row" id="booking-<%= book.id %>">
                           <div class="col-sm-3">
                             <h6 class="mb-0">Guest</h6>
@@ -187,11 +188,11 @@
                           </div>
                           <div class="col-sm-9 text-secondary">
                             <% if book.status == "accepted"%>
-                              <i class="far fa-check-circle" style="color:#1EDD88"></i>
+                              <p style="margin-bottom: 0;"><i class="far fa-check-circle" style="color:#1EDD88; margin-right: 4px;"></i> You accepted <%= book.user.name%>'s request</p>
                             <% elsif book.status == "declined"%>
-                              <i class="far fa-times-circle" style="color:red"></i>
+                              <p style="margin-bottom: 0;"><i class="far fa-times-circle" style="color:red; margin-right: 4px;"></i> You declined <%= book.user.name%>'s request</p>
                             <% else %>
-                              <p style="margin-bottom: 0;"><i class="far fa-clock" style="color:grey"></i> - please reply to <%= book.user.name  %> soon!</p>
+                              <p style="margin-bottom: 0;"><i class="far fa-clock" style="color:grey; margin-right: 4px;"></i>  Please reply to <%= book.user.name  %> soon!</p>
                             <% end %>
                           </div>
                         </div>
@@ -204,10 +205,10 @@
                             </div>
                           </div>
                       <% end %>
-
-                      <% end %>
+                      </div>
                     <% end %>
-                  </div>
+                  <% end %>
+
                 <% end %>
 
                 <div class="row">
