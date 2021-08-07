@@ -9,7 +9,7 @@
       <%= simple_form_for [@garden, @booking] do |f| %>
         <%= f.input :start_date, as: :string, required: false, input_html: { id: "range_start" } %>
         <%= f.input :end_date, as: :string, required: false, input_html: { id: "range_end" } %>
-        <%= f.submit "Block days", class: "btn btn-success btn-layout btn-custom" %>
+        <%= f.submit "Block days", class: "btn btn-layout btn-book" %>
       <% end %>
     </div>
   </div>
