@@ -33,7 +33,13 @@
             <div id="booking-<%= book.id %>">
               <p>Guest:<%= book.user.name %></p>
               <p>Time: <%= book.start_date %> - <%= book.end_date %></p>
-              <p>Status: <%= book.status %></p>
+              <p>Status: <% if book.status == "accepted"%>
+                         <i class="far fa-check-circle" style="color:#1EDD88"></i>
+                         <% elsif book.status == "declined"%>
+                         <i class="far fa-times-circle" style="color:red"></i>
+                         <% else %>
+                         <i class="far fa-clock" style="color:grey"></i>
+                         <% end %></p>
               <div class="flex" data-status="<%= book.status.to_json %>" data-dates="<%= book.status.to_json %>">
                 <% if book.status == "pending" %>
                   <%= link_to "Accept",accept_booking_path(book), :method=>"PUT",  class: "btn btn-success", remote: true%>
