@@ -66,11 +66,12 @@
   </div>
 
   <div class="garden-info-flex">
-    <div class="card-location">
       <p><%= @garden.address %></p>
       <p><strong>Price Per Day:</strong> €<%= @garden.price_per_day %></p>
       <%= link_to "Book now", new_garden_booking_path(@garden), {:class => "btn btn-layout btn-book"}%>
+      <% if current_user === @garden.user %>
+      <%= link_to "Block dates for me", profile_path(@garden), {:class => "btn btn-layout btn-block "} %>
+      <% end %>
     </div>
-  </div>
 </div>
 </div>
