@@ -68,9 +68,10 @@
   <div class="garden-info-flex">
       <p><%= @garden.address %></p>
       <p><strong>Price Per Day:</strong> €<%= @garden.price_per_day %></p>
-      <%= link_to "Book now", new_garden_booking_path(@garden), {:class => "btn btn-layout btn-book"}%>
       <% if current_user === @garden.user %>
-      <%= link_to "Block dates for me", profile_path(@garden), {:class => "btn btn-layout btn-block "} %>
+      <%= link_to "Block dates for me",new_garden_booking_path(@garden), {:class => "btn btn-layout btn-block "} %>
+      <% else %>
+      <%= link_to "Book now", new_garden_booking_path(@garden), {:class => "btn btn-layout btn-book"}%>
       <% end %>
     </div>
 </div>
