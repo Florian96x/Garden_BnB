@@ -43,13 +43,42 @@
 }
 
 .btn-block {
-  width: 162px;
+  width: 100%;
+  padding: 8px;
   color: #153131;
   border: 1px solid #153131;
-  margin-left: 6px;
+  margin-top: 16px;
 }
 
 .btn-block:hover {
   color: #2e6d6d;
   border: 1px solid #2e6d6d;
+}
+
+.btn-block-days {
+  padding: 8px 12px;
+  color: #153131;
+  border: 1px solid #153131;
+  border-radius: 24px;
+  margin-left: 16px;
+}
+
+.btn-block-days:hover {
+  color: #2e6d6d;
+  border: 1px solid #2e6d6d;
+  text-decoration: none;
+}
+
+.btn-book {
+ width: 100%;
+ padding: 8px;
+ color: white;
+ // border: 1px solid #153131;
+ // margin-left: 6px;
+ background-color: #153131;
+}
+.btn-book:hover {
+ color: white;
+ background-color: #2e6d6d;
+ // border: 1px solid #2e6d6d;
 }
